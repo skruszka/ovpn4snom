@@ -36,9 +36,8 @@ def readcertfromovpn(file, start, stop):
 # Read certificates informations out of the certificates block of the ovpn file
 def writecert(lines, start, stop, filename):
     file = open(filename, "w")
-    #file.close()
+    # Defined trigger
     doprint = False
-    #file = open(filename, "a")
     for line in lines:
         if line.startswith(start):
             doprint = True
@@ -54,7 +53,7 @@ def writecert(lines, start, stop, filename):
 
 # create vpn.cnf out of the ovpn file
 def createconf(file, auth):
-    # Define some trigger
+    # Defined some trigger
     dowrite = True
     authset = False
     caset = False
@@ -134,7 +133,7 @@ def createconf(file, auth):
     # Set root only priviliges to file
     rootonly('./vpn.cnf')
 
-# Function to set root only permission to file
+# Function to set root only priviliges to file
 def rootonly(file):
     # Set permission to 0700
     os.chmod(file, stat.S_IRWXU)
@@ -201,7 +200,7 @@ createconf(args.file, args.auth)
 writecert(readcertfromovpn(args.file, '<ca>', '</ca>'), '-----BEGIN CERTIFICATE-----', '-----END CERTIFICATE-----', "ca.crt")
 # Create client.crt file
 writecert(readcertfromovpn(args.file, '<cert>', '</cert>'), '-----BEGIN CERTIFICATE-----', '-----END CERTIFICATE-----', "client.crt")
-# Create clint.key file
+# Create client.key file
 writecert(readcertfromovpn(args.file, '<key>', '</key>'), '-----BEGIN PRIVATE KEY-----', '-----END PRIVATE KEY-----', "client.key")
 
 # Create tarball, set username as filename for tarball if set
