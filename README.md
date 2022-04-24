@@ -26,7 +26,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -57,14 +56,6 @@ Instead of copy and paste certificates, key and OpenVPN configuration out of an 
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-* pip
-  ```sh
-   pip3 install paramiko
-   pip3 install python-gnupg
-  ```
 
 ### Installation
 
